@@ -3,6 +3,9 @@
 Go Remote Server Side Events - Multiple SSE Server, which allows sending messages through RPC.
 Позволяет отправлять сообщения веб-приложенияем, основанным на микросервисной архитектуре.
 
+Данный пакет основан на примере SSE сервера [ismasan/sse.go](https://gist.github.com/ismasan/3fb75381cd2deb6bfa9c)
+и описания пакета [net/rpc](https://golang.org/pkg/net/rpc/)
+
 ## Usage
 1. Создаём `server.go`. В нём определяем серверы SSE в массиве объектов SSE.SSEServerSettings. Для каждого сервера нужно указать имя и порт.
 Также нужно указать адрес сервера RPC и его порт. Адрес сервера RPC будет использоваться как адрес для каждого сервера SSE.
