@@ -9,15 +9,19 @@ import (
 func SendMsg(addrWithPort string, appName string, msg string) {
 	client, err := rpc.DialHTTP("tcp", addrWithPort)
 	if err != nil {
-		log.Fatal("dialing:", err)
+		log.Println("dialing: ", err)
 		return
 	}
 	request := SSE.Request{appName,msg}
 	var reply int
 	err = client.Call("Manager.SendMsg", request, &reply)
 	if err != nil {
-		log.Fatal("arith error:", err)
+		log.Fatal("arith error: ", err)
 		return
+	}
+	err := client.Close()
+	if e != nil {
+		log.Println(e.Error())
 	}
 	return
 }
