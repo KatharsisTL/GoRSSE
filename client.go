@@ -16,10 +16,10 @@ func SendMsg(addrWithPort string, appName string, msg string) {
 	var reply int
 	err = client.Call("Manager.SendMsg", request, &reply)
 	if err != nil {
-		log.Fatal("arith error: ", err)
+		log.Println("arith error: ", err)
 		return
 	}
-	err := client.Close()
+	e := client.Close()
 	if e != nil {
 		log.Println(e.Error())
 	}
